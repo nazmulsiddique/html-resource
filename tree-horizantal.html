@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizantal Tree</title>
+    <style>
+        .tree {
+            margin: 18px;
+            padding: 0;
+        }
+
+        .tree:not(:empty):before,
+        .tree:not(:empty):after,
+        .tree ul:not(:empty):before,
+        .tree ul:not(:empty):after,
+        .tree li:not(:empty):before,
+        .tree li:not(:empty):after {
+            display: block;
+            position: absolute;
+            content: "";
+        }
+
+        .tree ul,
+        .tree li {
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tree li {
+            list-style: none;
+        }
+
+        .tree li>div {
+            background-color: #eee;
+            color: #222;
+            padding: 5px;
+            display: inline-block;
+        }
+
+        .tree.horizontal li {
+            display: flex;
+            align-items: center;
+            margin-left: 24px;
+        }
+
+        .tree.horizontal li div {
+            margin: 6px 0;
+        }
+
+        .tree.horizontal li:before {
+            border-left: 1px solid #ddd;
+            height: 100%;
+            width: 0;
+            top: 0;
+            left: -12px;
+        }
+
+        .tree.horizontal li:first-child:before {
+            height: 50%;
+            top: 50%;
+        }
+
+        .tree.horizontal li:last-child:before {
+            height: 50%;
+            bottom: 50%;
+            top: auto;
+        }
+
+        .tree.horizontal li:after,
+        .tree.horizontal li ul:after {
+            border-top: 1px solid #ddd;
+            height: 0;
+            width: 12px;
+            top: 50%;
+            left: -12px;
+        }
+
+        .tree.horizontal li:only-child:before {
+            content: none;
+        }
+
+        .tree.horizontal li ul:after {
+            left: 0;
+        }
+
+        .tree.horizontal>li:only-child {
+            margin-left: 0;
+        }
+
+        .tree.horizontal>li:only-child:before,
+        .tree.horizontal>li:only-child:after {
+            content: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul class="tree horizontal">
+            <li>
+                <div>node</div>
+            </li>
+            <li>
+                <div>node</div>
+            </li>
+            <li>
+                <div>node</div>
+            </li>
+            <li>
+                <div>node</div>
+            </li>
+            <li>
+                <div>node</div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
